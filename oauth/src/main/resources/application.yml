@@ -1,0 +1,7 @@
+logging:
+  level:
+    ROOT: info
+
+# --- server if jar
+server:
+  port: 5000

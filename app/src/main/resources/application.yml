@@ -1,0 +1,55 @@
+logging:
+  level:
+    org:
+      #   for debug purpose set to DEBUG and binder TRACE, otherwise INFO
+      hibernate:
+        SQL: info
+        type:
+          descriptor:
+            sql:
+              BasicBinder: info
+    ROOT: debug
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+  #    for init project only when schema.sql is available
+  #    initialization-mode: always
+  jmx:
+    default-domain: AppDomain
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    #      naming:
+    #        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    #   for debug purpose set to true
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        validator:
+          apply_to_ddl: false
+        format_sql: true
+
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        one-indexed-parameters: true
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://oauth.eba-tb3phtdp.ap-southeast-1.elasticbeanstalk.com/oauth/check_token
+      id: app_resource
+      user-info-uri: http://oauth.eba-tb3phtdp.ap-southeast-1.elasticbeanstalk.com/oauth/profile/me
+      prefer-token-info: false
+
+# --- server if jar
+server:
+  port: 5000
+#  servlet:
+#    context-path: /ets-api/app

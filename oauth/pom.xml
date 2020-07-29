@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>oauth</artifactId>
+    <version>1.0.0.RELEASE</version>
+    <name>oauth</name>
+    <description>Oauth2 authorization sever</description>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>id.co.astrafinancial</groupId>
+        <artifactId>parent-boot</artifactId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../parent-boot</relativePath>
+    </parent>
+
+    <properties>
+        <lib.version>1.0.0.RELEASE</lib.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>id.co.astrafinancial</groupId>
+            <artifactId>lib</artifactId>
+            <version>${lib.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <mainClass>id.co.astrafinancial.oauth.OauthApp</mainClass>
+                    <!-- this is necessary as we're not using the Boot parent -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
