@@ -8,7 +8,7 @@ logging:
           descriptor:
             sql:
               BasicBinder: info
-    ROOT: debug
+    ROOT: info
 
 spring:
   datasource:
