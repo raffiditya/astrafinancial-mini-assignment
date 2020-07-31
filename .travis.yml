@@ -18,7 +18,7 @@ deploy:
   bucket_name: "elasticbeanstalk-ap-southeast-1-226923330965"
   on:
     repo: raffiditya/astrafinancial-mini-assignment
-    branch: ci-cd
+    branch: master
 
 env:
   global:
